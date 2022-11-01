@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Board">
+    <insert id="save" parameterType="board">
+        insert into board_table(boardWriter, boardPass, boardTitle, boardContents)
+        values (#{boardWriter}, #{boardPass}, #{boardTitle}, #{boardContents})
+    </insert>
+
+    <select id="boardList" resultType="board">
+        select * from board_table
+    </select>
+
+    <select id="find" resultType="board" parameterType="Long">
+        select *from board_table where Id=#{Id}
+    </select>
+
+
+    <update id="up" parameterType="Long">
+        update board_table set boardHits = boardHits+1 where Id = #{Id}
+    </update>
+
+
+    <update id="update" parameterType="Board">
+        update board_table set boardTitle = #{boardTitle} ,  boardContents = #{boardContents} where id = #{id}
+    </update>
+
+
+    <delete id="del" parameterType="Long">
+        delete from board_table where id=#{id};
+    </delete>
+
+
+
+
+</mapper>
