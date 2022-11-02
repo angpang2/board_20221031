@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <jsp:include page="layout/header.jsp" flush="false"></jsp:include>
+    <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <title>boardDtail.jsp</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.css">
     <script src="/resources/js/jqury.js"></script>

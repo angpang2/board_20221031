@@ -30,14 +30,14 @@ public class BoardController {
     public String boardList(Model model){
         List<BoardDTO> result = boardService.boardList();
         model.addAttribute("BoardList",result);
-        return "boardList";
+        return "boardPages/boardList";
     }
 
     @GetMapping("/board")
     public String board(@RequestParam("id")Long Id , Model model ){
         BoardDTO findResult = boardService.find(Id);
         model.addAttribute("board",findResult);
-        return "boardDetail2";
+        return "boardPages/boardDetail2";
 
     }
 
@@ -47,7 +47,7 @@ public class BoardController {
        BoardDTO findResult =boardService.find(Id);
        model.addAttribute("board",findResult);
 //       return "/boardUpdate";
-       return "boardpage";
+       return "boardPages/boardpage";
     }
 
     @PostMapping("/update")
@@ -69,7 +69,7 @@ public class BoardController {
 
     @GetMapping("/boardpage")
     public String page(){
-        return "boardpage";
+        return "boardPages/boardpage";
     }
 
 

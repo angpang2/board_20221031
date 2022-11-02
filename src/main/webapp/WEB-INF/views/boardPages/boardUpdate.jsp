@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/resources/css/bootstrap.css">
 </head>
 <body>
-<jsp:include page="layout/header.jsp" flush="false"></jsp:include>
+<jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <div class="container" id="update-form">
   <form action="/update" method="post" name="up">
     글번호: <input type="text" name="id" value="${board.id}" class="form-control" readonly>

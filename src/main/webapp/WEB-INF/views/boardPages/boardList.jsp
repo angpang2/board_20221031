@@ -10,7 +10,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
-    <jsp:include page="layout/header.jsp" flush="false"></jsp:include>
+    <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <title>memberList.jsp</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.css">
     <script src="/resources/js/jqury.js"></script>

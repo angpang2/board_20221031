@@ -7,7 +7,7 @@
   <script src="/resources/js/jqury.js"></script>
 </head>
 <body>
-<jsp:include page="layout/header.jsp" flush="false"></jsp:include>
+<jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <form action="/update" method="post" name="up">
   <input type="hidden" name="id" value="${board.id}" class="form-control" readonly>
 <table>
@@ -54,7 +54,7 @@
           <td>&nbsp;</td>
           <td colspan="2"><input type=button value="수정하기" onclick="update()">
             <input type="button" value="삭제" onclick="del(${board.id})">
-            <input type=button value="취소" onclick="location.href='/'">
+            <input type=button value="취소" onclick="location.href='../../..'">
           <td>&nbsp;</td>
         </tr>
       </table>
@@ -74,7 +74,7 @@
   }
 
   const del= (clickid) => {
-    const passwordDB = ${board.boardPass};
+    const passwordDB = '${board.boardPass}';
     if(document.up.boardPass.value == passwordDB) {
       if (confirm("정말 삭제 하시겠습니까?") == true){
         location.href = "/del?id=" + clickid;

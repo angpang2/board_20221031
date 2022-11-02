@@ -7,7 +7,7 @@
   <script src="/resources/js/jqury.js"></script>
 </head>
 <body>
-<jsp:include page="layout/header.jsp" flush="false"></jsp:include>
+<jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
   <table>
     <tr>
       <td>
@@ -52,7 +52,44 @@
       </td>
     </tr>
   </table>
+<div>
+</div>
+<div>
+  <form action="/comment_save" method="get" name="comment">
+    <input type="text" name="comment_Writer" placeholder="댓글작성자" >
+    <input type="hidden" name="comment_id" value="${board.id}" id="com_id">
+    <input type="password" name="comment_Pass"placeholder="댓글비밀번호" >
+    <input type="text" name="comment_Contents"placeholder="댓글내용" >
+    <input type="submit" value="댓글달기">
+  </form>
+</div>
+
+<div id="detail_result">
+
+</div>
 
 </body>
+<script>
+  const emailCheck = () => {
+    const comment_id = document.getElementById("comment_id").value;
+    const detailResult = document.getElementById("detail_result");
+    $.ajax({
+      type: "post",
+      url: "/com_check",
+      data: {
+        value1: comment_id
+      },
+      dataType: "json",
+      success: function (comment) {
+        console.log("성공");
+        detailResult.innerHTML  = comment;
+      },
+      error: function () {
+        console.log("실패")
+      }
+
+    })
+  }
+</script>
 
 </html>
