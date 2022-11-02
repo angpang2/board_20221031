@@ -5,9 +5,12 @@
   <title>게시판</title>
   <link rel="stylesheet" href="/resources/css/bootstrap.css">
   <script src="/resources/js/jqury.js"></script>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
+
   <table>
     <tr>
       <td>
@@ -51,22 +54,30 @@
         </table>
       </td>
     </tr>
+    <c:if test="${board.storedFileName != null}">
+    <tr>
+      <td>
+        <img src="${pageContext.request.contextPath}/upload/${board.storedFileName}"
+             alt="" width="100" height="100">
+      </td>
+    </tr>
+    </c:if>
   </table>
 <div>
 </div>
-<div>
-  <form action="/comment_save" method="get" name="comment">
-    <input type="text" name="comment_Writer" placeholder="댓글작성자" >
-    <input type="hidden" name="comment_id" value="${board.id}" id="com_id">
-    <input type="password" name="comment_Pass"placeholder="댓글비밀번호" >
-    <input type="text" name="comment_Contents"placeholder="댓글내용" >
-    <input type="submit" value="댓글달기">
-  </form>
-</div>
+<%--<div>--%>
+<%--  <form action="/comment_save" method="get" name="comment">--%>
+<%--    <input type="text" name="comment_Writer" placeholder="댓글작성자" >--%>
+<%--    <input type="hidden" name="comment_id" value="${board.id}" id="com_id">--%>
+<%--    <input type="password" name="comment_Pass"placeholder="댓글비밀번호" >--%>
+<%--    <input type="text" name="comment_Contents"placeholder="댓글내용" >--%>
+<%--    <input type="submit" value="댓글달기">--%>
+<%--  </form>--%>
+<%--</div>--%>
 
-<div id="detail_result">
+<%--<div id="detail_result">--%>
 
-</div>
+<%--</div>--%>
 
 </body>
 <script>

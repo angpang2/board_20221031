@@ -22,12 +22,12 @@
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 
 <div class="container" id="save-form">
-    <form action="/save" method="post" name="saveForm"  class="form-control" >
+    <form action="/save" method="post" name="saveForm"  class="form-control" enctype="multipart/form-data">
     작성자  <input type="text" name="boardWriter"  class="form-control" >
     글비밀번호 <input type="text" name="boardPass"  class="form-control" >
     제목  <input type="text" name="boardTitle"  class="form-control" >
-<%--    내용  <input type="text" name="boardContents"  class="form-control" >--%>
      내용   <textarea name="boardContents" cols="30" rows="10" class="form-control"></textarea>
+        <input type="file" class="form-control" name="boardFile">
         <input type="submit" value="작성하기">
 </form>
 </div>
