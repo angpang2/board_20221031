@@ -64,6 +64,7 @@
     </c:if>
   </table>
 <div>
+  <button class="btn btn-primary" onclick="listFn()">목록</button>
 </div>
 <%--<div>--%>
 <%--  <form action="/comment_save" method="get" name="comment">--%>
@@ -101,6 +102,14 @@
 
     })
   }
+
+  const listFn = () => {
+    const page = '${page}';
+    location.href = "/board/paging?page="+page;
+  }
+
+
+
 </script>
 
 </html>

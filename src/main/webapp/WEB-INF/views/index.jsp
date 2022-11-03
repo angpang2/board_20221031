@@ -15,7 +15,8 @@
 <jsp:include page="layout/header.jsp" flush="false"></jsp:include>
 <a href="/board/save">글작성</a>
 <a href="/board/">글목록</a>
-<a href="/boardpage">보드페이지</a>
+<a href="/board/paging">페이징목록</a>
+<a href="/board/paging?page=10">10페이지</a>
 
 
 </body>

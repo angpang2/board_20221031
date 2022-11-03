@@ -1,6 +1,7 @@
 package com.its.board.controller;
 
 import com.its.board.DTO.BoardDTO;
+import com.its.board.DTO.PageDTO;
 import com.its.board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,10 +36,10 @@ public class BoardController {
     }
 
     @GetMapping("/board")
-    public String board(@RequestParam("id")Long id , Model model ){
+    public String board(@RequestParam("id")Long id , Model model , @RequestParam(value = "page",required = false,defaultValue = "1")int page ){
         BoardDTO findResult = boardService.find(id);
         model.addAttribute("board",findResult);
-        System.out.println("조회:"+findResult);
+        model.addAttribute("page",page);
         return "boardPages/boardDetail2";
 
     }
@@ -74,6 +75,28 @@ public class BoardController {
         return "boardPages/boardpage";
     }
 
+    //페이징목록
+    @GetMapping("/board/paging")
+    public String paging(Model model ,@RequestParam(value = "page",required = false,defaultValue = "1")int page){
+        System.out.println("page = " + page);
+        //해당 페이지에서 보여줄 글 목록
+        List<BoardDTO>pagingList = boardService.pagingList(page);
+        //하단 페이지 번호 표현을 위한 데이터
+        PageDTO pageDTO = boardService.pagingParam(page);
+       model.addAttribute("boardList",pagingList);
+        model.addAttribute("paging",pageDTO);
+
+        return "boardPages/boardPaging";
+    }
+
+
+    //검색처리
+    @GetMapping("/search")
+    public String search(@RequestParam("type")String type,@RequestParam("q")String q , Model model){
+       List<BoardDTO>searchList = boardService.search(type,q);
+       model.addAttribute("BoardList",searchList);
+       return "boardPages/boardList";
+    }
 
 
 
